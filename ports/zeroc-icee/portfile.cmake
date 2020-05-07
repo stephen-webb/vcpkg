@@ -1,7 +1,7 @@
 
 vcpkg_from_git(
     OUT_SOURCE_PATH SOURCE_PATH
-    URL https://swebb2066@bitbucket.org/sabreautonomous/icee.git
+    URL https://bitbucket.org/sabreautonomous/icee.git
     REF 8f4b87243f90bacc4f5fe6fecd43773bd38aaa5d
 )
 
