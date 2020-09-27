@@ -1,16 +1,14 @@
+vcpkg_check_linkage(ONLY_DYNAMIC_LIBRARY)
 
-vcpkg_from_github(
-    OUT_SOURCE_PATH SOURCE_PATH
-    REPO stephen-webb/logging-log4cxx
-    REF master
-    SHA512 0fbe9a94ed700817e5e1751a4945e25e1a253a4ec65dbaf005cb7806c224122fcd2ca4f772a03a07884a595fc161b4a125251256eac020804404a1a541b80aec
-    HEAD_REF master
+set(LOG4CXX_VERSION 0.11.0)
+vcpkg_download_distfile(ARCHIVE
+    URLS "https://archive.apache.org/dist/logging/log4cxx/0.11.0/apache-log4cxx-0.11.0.tar.gz"
+    FILENAME "apache-log4cxx-0.10.0.tar.gz"
+    SHA512 f8aa37c9c094e7a4d6ca92dff13c032f69f1e078c51ea55e284fcb931c13256b08950af3ea6eaf7a12282240f6073e9acab19bfe217f88dbd62a5d2360f3fbdd  
 )
-
 vcpkg_configure_cmake(
     SOURCE_PATH ${SOURCE_PATH}
-    OPTIONS
-        -DLOG4CXX_INSTALL_PDB=OFF # Installing pdbs failed on debug static. So, disable it and let vcpkg_copy_pdbs() do it
+    PREFER_NINJA
 )
 
 vcpkg_install_cmake()
